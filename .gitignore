@@ -1,0 +1,14 @@
+node_modules/
+dist/
+out/
+coverage/
+.vscode-test/
+*.vsix
+*.log
+.DS_Store
+
+# Never commit secrets. CommitCraft keeps the API key in VS Code SecretStorage only.
+.env
+.env.*
+*.pem
+*.key

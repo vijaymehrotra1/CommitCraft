@@ -1,0 +1,10 @@
+{
+  "search.exclude": {
+    "dist": true,
+    "out": true,
+    "coverage": true,
+    ".vscode-test": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnSave": false
+}

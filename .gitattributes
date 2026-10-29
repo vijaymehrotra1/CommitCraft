@@ -1,0 +1,6 @@
+# Keep line endings byte-for-byte where tests depend on them.
+* text=auto eol=lf
+# The diff fixtures are captured git output, including CRLF content lines. Never let git convert them.
+test/fixtures/*.diff -text
+*.png binary
+*.vsix binary
