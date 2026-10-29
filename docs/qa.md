@@ -16,6 +16,7 @@ be re-run with the command beside it.
 | False positives of secret masking on 482,291 lines of third-party code | **18 lines changed** (9 are doc examples that really are credentials; 9 are one parser's labels) | `npm run scan:fp -- node_modules/@anthropic-ai ...` |
 | `npm audit --omit=dev` (what ships) | 0 vulnerabilities | `npm audit --omit=dev` |
 | `.vsix` | 8 files, about 120 KB, no source or tests inside | `npm run package` |
+| GitHub Actions CI (2026-10-29): unit tests, lint, build on Ubuntu, Windows and macOS (Node 20 and 22) plus the integration suite on Ubuntu | **7 of 7 jobs passing** after one fix | the **Actions** tab of the repository |
 | Real **Google Gemini** call (2026-10-28, free key, `gemini-3.5-flash-lite`) | **verified end to end**: Conventional Commit message in 1.6 s, 4-section PR description in 1.2 s, 8 fake secrets masked, `.env`/`.pem`/`id_rsa` never read | `COMMITCRAFT_PROVIDER=gemini GEMINI_API_KEY=... npm run check:live` |
 | Real **Anthropic** call (2026-10-28) | **partly verified**: endpoint reached, key accepted, error handling works on a real response; the account had no credit, so a successful generation is still unseen | `ANTHROPIC_API_KEY=... npm run check:live` |
 
@@ -209,8 +210,11 @@ The README, the setting description and the key prompt say so; use the free tier
    its response is parsed correctly. **Gemini, by contrast, was verified end to end** with a free key (see section 1), so
    the pipeline, the prompts and the response cleaning are proven against a real model; only the Anthropic-specific request
    remains unseen. Add credit and re-run `npm run check:live` to close it.
-2. **Windows and macOS have not been run.** The code avoids platform assumptions and CI is configured for all
-   three, but no one has seen it pass there.
+2. **Windows and macOS: only the automated checks have run, in CI.** On 2026-10-29 GitHub Actions ran typecheck, lint,
+   all unit tests and the build on Ubuntu, Windows and macOS with Node 20 and 22, and all passed. The integration
+   suite (a real VS Code) runs on Ubuntu only, and the manual checklist has been run on no platform but Linux, so
+   the real extension has not been seen working on Windows or macOS. The first CI run also caught a real bug (the
+   integration script never built `dist/`; see `docs/knowledge-base/dev-gotchas.md`), now fixed.
 3. **The interactive flows with real notifications and input boxes** (progress, Cancel, the key prompt, modal
    confirmations) are covered by unit tests with a fake `vscode` module and by the manual checklist, not by an
    automated test in a real window.

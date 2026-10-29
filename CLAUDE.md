@@ -121,3 +121,6 @@ starting any feature.
   can make a test pass or fail for the wrong reason (assert that the substitution happened).
 - Do not put secret-shaped literals in the repo, even fake ones: GitHub push protection and secret
   scanners match on format. Tests build fakes at runtime from fragments (test/helpers/fakeSecrets.ts).
+- A test script must build everything it loads. `test:integration` once bundled only the tests and passed locally on a
+  leftover `dist/`; the first CI run on a fresh checkout failed. After changing a script, delete `dist/` and `out/`
+  and run it again (docs/knowledge-base/dev-gotchas.md).

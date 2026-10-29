@@ -93,6 +93,11 @@ ask it to wrap up), and it did not audit three VS Code-layer test files beyond s
 
 Both are the same lesson: tests built from assumptions pass and ship the wrong behaviour.
 
+**The first CI run.** Pushing to GitHub found one more: the integration script bundled the tests but never the
+extension, so it only passed locally because an old `dist/` was lying around. On a fresh checkout two tests failed with
+`Cannot find module 'dist/extension.js'`. I reproduced it by deleting `dist/`, fixed the script, and all 7 CI jobs then
+passed. Same lesson again: a suite can look green because of state it never created.
+
 ## 6. What I changed in the process because of the mistakes
 
 `CLAUDE.md` "Lessons learned" is the durable output. Each rule traces to a real failure above:
@@ -121,8 +126,10 @@ Full detail is in `docs/qa.md`, section 7. In short:
 - **Verified end to end:** the pipeline, prompts and response cleaning against a real model (Gemini, 2026-10-28).
 - **Partly verified:** Anthropic. The endpoint, key and error path work, but the account had no credit, so a
   successful generation has not been seen and the exact request (model name, `output_config.effort`) is unproven.
-- **Not run:** Windows and macOS (CI is configured for both), Restricted Mode by hand, and the interactive flows in a
-  real window apart from the manual checklist.
+- **Verified in CI (2026-10-29):** typecheck, lint, unit tests and build pass on Ubuntu, Windows and macOS with Node
+  20 and 22, and the integration suite passes on Ubuntu.
+- **Not run:** the real extension on Windows or macOS (the integration suite and the manual checklist were Linux
+  only), Restricted Mode by hand, and the interactive flows in a real window apart from the manual checklist.
 - **Known limit:** secret masking is best effort; the gaps are listed in `docs/knowledge-base/secret-patterns.md`.
 
 ## 9. What I would do differently

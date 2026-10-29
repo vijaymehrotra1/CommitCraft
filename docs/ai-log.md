@@ -119,3 +119,16 @@
 - **Scope note for Vijay:** the brief lists multiple providers in the UI as out of scope. This is a deliberate, small
   extension so the project can be tested without paying; say so in the demo.
 
+## 2026-10-29 – First CI run on GitHub (found a bug the local runs hid)
+- **What I asked:** push the repository to GitHub. CI ran on Ubuntu, Windows and macOS (Node 20 and 22) plus the
+  integration suite.
+- **What happened:** the six unit/lint/build jobs passed on all three systems. The integration job failed: two tests
+  that activate the extension reported `Cannot find module '.../dist/extension.js'`.
+- **What it got wrong:** `npm run test:integration` bundled only the test files, never the extension (`dist/` is
+  gitignored). It passed locally for days because an old `dist/` was lying around, so the suite may have been testing a
+  stale bundle. The AI had written the script and described the suite as proving the packaged extension loads.
+- **How I caught it:** only on a fresh checkout in CI. The job log showed which tests failed; reading `esbuild.mjs`
+  gave the cause; hiding `dist/` locally reproduced the same two failures; the fix was checked the same way.
+- **What I changed:** `test:integration` now builds the extension first (`fix(test)` commit), a note in
+  `docs/knowledge-base/dev-gotchas.md`, and the CI result in `docs/qa.md`. All 7 CI jobs then passed.
+

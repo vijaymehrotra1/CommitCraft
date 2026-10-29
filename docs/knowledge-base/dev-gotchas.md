@@ -22,6 +22,11 @@ Things that cost time while building CommitCraft. Add to this list when somethin
 - The suite uses a temporary user-data dir and extensions dir, so it never touches your VS Code profile. A
   VS Code window does open briefly. On a headless Linux box use `xvfb-run -a npm run test:integration`.
 - Tests share one temporary repository and run in order (they check out branches), so do not reorder them.
+- **The integration run must build `dist/extension.js` itself.** The extension under test loads the bundle named by
+  `package.json` `main`, and `dist/` is gitignored. `test:integration` once bundled only the test files: it passed
+  on a developer machine with a leftover (maybe stale) `dist/` and failed in CI on a fresh checkout with
+  `Cannot find module '.../dist/extension.js'` (the two tests that activate the extension). The script now runs
+  `node esbuild.mjs` first. To check, delete `dist/` and run it.
 
 ## Packaging
 
