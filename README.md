@@ -14,11 +14,16 @@ make changelogs painful. CommitCraft reads what you actually changed and writes 
 | **CommitCraft: Generate PR Description** | Compares the current branch with the base branch (default `main`) and opens a Markdown description with **Summary, Changes, Testing and Risks** in a new tab. |
 | **CommitCraft: Set API Key** | Stores the API key for the AI service you chose (Anthropic or Google Gemini) in VS Code's secure storage. |
 
-> Screenshot placeholder: the sparkle button in the Source Control title bar and a generated commit message in the box.
->
-> Screenshot placeholder: a generated PR description open in a Markdown tab.
->
-> Screenshot placeholder: the progress notification with its Cancel button.
+![The Source Control panel after running CommitCraft: Generate Commit Message. A drafted Conventional Commit message is in the message box, with .env and src/config.ts staged.](https://raw.githubusercontent.com/vijaymehrotra1/CommitCraft/main/media/screenshot-commit-message.png)
+
+*Generate Commit Message with the Gemini provider. The draft lands in the message box for you to edit, and nothing is
+committed until you press Commit. A notification names the service that was used. The staged `.env` was not sent.
+Other extensions can add their own sparkle buttons to this panel, so hover over a button to see which extension it
+belongs to.*
+
+![The Command Palette filtered by "commitcraft", listing Set API Key, Generate Commit Message and Generate PR Description.](https://raw.githubusercontent.com/vijaymehrotra1/CommitCraft/main/media/screenshot-command-palette.png)
+
+*All three commands are in the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).*
 
 ## Install
 
@@ -40,6 +45,11 @@ Pick the AI service in Settings (`commitcraft.provider`) and get a key for it. E
 
 > **Free-tier privacy:** on Gemini's free tier, Google may use your prompts to improve its products and human reviewers
 > may read them (see "Privacy and security"). Use it for demos, open-source and personal code, not confidential code.
+
+![The CommitCraft page in VS Code Settings with the Provider dropdown open, offering anthropic (default) and gemini.](https://raw.githubusercontent.com/vijaymehrotra1/CommitCraft/main/media/screenshot-settings-provider.png)
+
+*Settings, Extensions, CommitCraft. The Provider setting says which service receives your diffs, and its description
+carries the free-tier privacy warning.*
 
 1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and run **CommitCraft: Set API Key**. It asks for the key of
    the service currently selected in `commitcraft.provider`.
@@ -69,6 +79,8 @@ contains the file you are editing, otherwise it asks you.
 
 The description covers the commits on your branch that are not on the base branch (the newest 100 are listed
 if there are more). Uncommitted and unstaged changes are not included. If your base branch is not `main`, set `commitcraft.baseBranch`.
+
+> Screenshot placeholder: a generated PR description open in a Markdown tab.
 
 ## Settings
 
