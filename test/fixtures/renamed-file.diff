@@ -1,0 +1,17 @@
+diff --git a/docs/old-guide.md b/docs/setup-guide.md
+similarity index 95%
+rename from docs/old-guide.md
+rename to docs/setup-guide.md
+index adac502..2b8e2ea 100644
+--- a/docs/old-guide.md
++++ b/docs/setup-guide.md
+@@ -1,4 +1,4 @@
+-# Setup guide
++# Getting started
+ 
+ 1. Install dependencies.
+ 2. Copy the sample configuration.
+diff --git a/src/utils/format.ts b/src/utils/duration.ts
+similarity index 100%
+rename from src/utils/format.ts
+rename to src/utils/duration.ts

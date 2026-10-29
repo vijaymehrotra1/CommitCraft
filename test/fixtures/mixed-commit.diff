@@ -1,0 +1,59 @@
+diff --git a/assets/favicon.png b/assets/favicon.png
+new file mode 100644
+index 0000000..b4ded0f
+Binary files /dev/null and b/assets/favicon.png differ
+diff --git a/package-lock.json b/package-lock.json
+index 5f876e2..c6d4b2b 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -11,7 +11,7 @@
+       }
+     },
+     "node_modules/pkg-0": {
+-      "version": "1.0.0",
++      "version": "3.0.0",
+       "resolved": "https://registry.npmjs.org/pkg-0/-/pkg-0-1.0.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0000ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
+diff --git a/package.json b/package.json
+index ddf6dd6..647397d 100644
+--- a/package.json
++++ b/package.json
+@@ -2,6 +2,7 @@
+   "name": "demo-app",
+   "version": "1.0.0",
+   "dependencies": {
+-    "left-pad": "^1.3.0"
++    "left-pad": "^1.3.0",
++    "vitest": "^3.2.0"
+   }
+ }
+diff --git a/src/auth/password.ts b/src/auth/password.ts
+new file mode 100644
+index 0000000..91bf7b2
+--- /dev/null
++++ b/src/auth/password.ts
+@@ -0,0 +1,5 @@
++import { scryptSync } from 'node:crypto';
++
++export function hashPassword(password: string, salt: string): string {
++  return scryptSync(password, salt, 64).toString('hex');
++}
+diff --git a/src/utils/format.ts b/src/utils/duration.ts
+similarity index 100%
+rename from src/utils/format.ts
+rename to src/utils/duration.ts
+diff --git a/test/password.test.ts b/test/password.test.ts
+new file mode 100644
+index 0000000..a2b19ba
+--- /dev/null
++++ b/test/password.test.ts
+@@ -0,0 +1,8 @@
++import { describe, expect, it } from 'vitest';
++import { hashPassword } from '../src/auth/password';
++
++describe('hashPassword', () => {
++  it('is deterministic for the same salt', () => {
++    expect(hashPassword('pw', 'salt')).toBe(hashPassword('pw', 'salt'));
++  });
++});

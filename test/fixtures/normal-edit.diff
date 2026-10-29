@@ -1,0 +1,24 @@
+diff --git a/src/auth/session.ts b/src/auth/session.ts
+index ba57f56..b52bdb8 100644
+--- a/src/auth/session.ts
++++ b/src/auth/session.ts
+@@ -6,7 +6,7 @@ export interface Session {
+   expiresAt: number;
+ }
+ 
+-const SESSION_TTL_MS = 60 * 60 * 1000;
++const SESSION_TTL_MS = 30 * 60 * 1000;
+ const sessions = new Map<string, Session>();
+ 
+ export function createSession(userId: string): Session {
+@@ -31,8 +31,8 @@ export function getSession(id: string): Session | undefined {
+   return session;
+ }
+ 
+-export function destroySession(id: string): void {
+-  sessions.delete(id);
++export function destroySession(id: string): boolean {
++  return sessions.delete(id);
+ }
+ 
+ export function countActiveSessions(): number {

@@ -1,0 +1,67 @@
+diff --git a/package-lock.json b/package-lock.json
+index 5f876e2..9441d63 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -11,52 +11,52 @@
+       }
+     },
+     "node_modules/pkg-0": {
+-      "version": "1.0.0",
++      "version": "2.0.0",
+       "resolved": "https://registry.npmjs.org/pkg-0/-/pkg-0-1.0.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0000ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
+     "node_modules/pkg-1": {
+-      "version": "1.1.0",
++      "version": "2.1.0",
+       "resolved": "https://registry.npmjs.org/pkg-1/-/pkg-1-1.1.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0001ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
+     "node_modules/pkg-2": {
+-      "version": "1.2.0",
++      "version": "2.2.0",
+       "resolved": "https://registry.npmjs.org/pkg-2/-/pkg-2-1.2.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0002ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
+     "node_modules/pkg-3": {
+-      "version": "1.3.0",
++      "version": "2.3.0",
+       "resolved": "https://registry.npmjs.org/pkg-3/-/pkg-3-1.3.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0003ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
+     "node_modules/pkg-4": {
+-      "version": "1.4.0",
++      "version": "2.4.0",
+       "resolved": "https://registry.npmjs.org/pkg-4/-/pkg-4-1.4.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0004ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
+     "node_modules/pkg-5": {
+-      "version": "1.5.0",
++      "version": "2.5.0",
+       "resolved": "https://registry.npmjs.org/pkg-5/-/pkg-5-1.5.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0005ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
+     "node_modules/pkg-6": {
+-      "version": "1.6.0",
++      "version": "2.6.0",
+       "resolved": "https://registry.npmjs.org/pkg-6/-/pkg-6-1.6.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0006ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
+     "node_modules/pkg-7": {
+-      "version": "1.7.0",
++      "version": "2.7.0",
+       "resolved": "https://registry.npmjs.org/pkg-7/-/pkg-7-1.7.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0007ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
+     "node_modules/pkg-8": {
+-      "version": "1.8.0",
++      "version": "2.8.0",
+       "resolved": "https://registry.npmjs.org/pkg-8/-/pkg-8-1.8.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0008ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
+     "node_modules/pkg-9": {
+-      "version": "1.9.0",
++      "version": "2.9.0",
+       "resolved": "https://registry.npmjs.org/pkg-9/-/pkg-9-1.9.0.tgz",
+       "integrity": "sha512-FAKEINTEGRITY0009ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789=="
+     },
