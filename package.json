@@ -125,7 +125,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:integration": "node esbuild.mjs --integration && node out/test/runTest.js",
+    "test:integration": "node esbuild.mjs && node esbuild.mjs --integration && node out/test/runTest.js",
     "check:live": "node esbuild.mjs --live-check && node out/live-check.js",
     "scan:fp": "node esbuild.mjs --fp-scan && node out/fp-scan.js",
     "lint": "eslint .",
